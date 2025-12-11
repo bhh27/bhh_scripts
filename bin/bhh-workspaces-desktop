@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DELL="DP-1"
+LG="DP-2"
+
+workspaces=($(hyprctl workspaces -j | jq -r '.[].id'))
+
+for ws in "${workspaces[@]}"; do
+    echo "Found workspace: $ws"
+done
+
+for ws in "${workspaces[@]}"; do
+    if [[ "$ws" -eq 1 ]]; then
+        echo "Moving workspace $ws → $DELL"
+        hyprctl dispatch moveworkspacetomonitor "$ws" "$DELL"
+    else
+        echo "Moving workspace $ws → $LG"
+        hyprctl dispatch moveworkspacetomonitor "$ws" "$LG"
+    fi
+done

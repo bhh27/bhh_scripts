@@ -1,0 +1,13 @@
+#!/bin/bash
+
+VNC="VNC-1"
+workspaces=($(hyprctl workspaces -j | jq -r '.[].id'))
+
+for ws in "${workspaces[@]}"; do
+    echo "Found workspace: $ws"
+done
+
+for ws in "${workspaces[@]}"; do
+    echo "Moving workspace $ws → $VNC"
+    hyprctl dispatch moveworkspacetomonitor "$ws" "$VNC"
+done

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Create a headless monitor in Hyprland + set resolution
+MONITOR_NAME="VNC-1"
+RESOLUTION="1512x982@60"
+
+if hyprctl monitors | grep -q "$MONITOR_NAME"; then
+    echo "Monitor $MONITOR_NAME already exists, skipping creation."
+else
+    echo "Creating headless monitor: $MONITOR_NAME"
+    hyprctl output create headless "$MONITOR_NAME"
+fi
+
+echo "Setting monitor resolution: $RESOLUTION"
+hyprctl keyword monitor "$MONITOR_NAME,$RESOLUTION,auto,1"
+
+# Relaunch waybar after monitor change
+pkill waybar
+waybar & 
+disown
+
+echo "VNC-1 virtual monitor ready."

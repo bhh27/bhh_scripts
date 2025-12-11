@@ -1,0 +1,4 @@
+#!/bin/bash
+
+bhh-workspaces-desktop
+pkill wayvnc

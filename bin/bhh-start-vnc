@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export WAYLAND_DISPLAY=wayland-1
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export HYPRLAND_INSTANCE_SIGNATURE=$(hyprctl -j instances | jq -r '.[0].instance')
+
+source ~/.config/uwsm/env
+
+bhh-create-virtual-monitor
+bhh-workspaces-vnc
+wayvnc -Ldebug --gpu -o VNC-1 0.0.0.0
