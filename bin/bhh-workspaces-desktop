@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DELL="DP-1"
-LG="DP-2"
+DELL="desc:Dell Inc. DELL U2422HE 896TNM3"
+LG="desc:LG Electronics LG TV SSCR2 0x01010101"
 
 workspaces=($(hyprctl workspaces -j | jq -r '.[].id'))
 

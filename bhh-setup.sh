@@ -55,7 +55,7 @@ omarchy-theme-next
 
 #ensure all scripts are excuteable
 if [[ -d "$BHH_BINARIES" ]]; then
-    chmod +x "$BHH_BINARIES"/*
+    sudo chmod +x "$BHH_BINARIES"/*
 fi
 
 #reload hyprland when done
