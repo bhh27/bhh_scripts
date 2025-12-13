@@ -1,0 +1,2 @@
+export BHH_ROOT="$HOME/.local/share/bhh"
+export PATH="$PATH:$BHH_ROOT/bin"
