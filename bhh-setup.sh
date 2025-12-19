@@ -2,6 +2,9 @@
 
 
 export BHH_ROOT=$HOME'/.local/share/bhh'
+export WAYLAND_DISPLAY=wayland-1
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export HYPRLAND_INSTANCE_SIGNATURE=$(hyprctl -j instances | jq -r '.[0].instance')
 
 BHH_SETUP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BHH_BINARIES=$BHH_ROOT'/bin'
