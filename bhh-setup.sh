@@ -54,7 +54,8 @@ cp $BHH_WAYBARSTYLE $WAYBARSTYLE
 omarchy-theme-install https://github.com/Justin-De-Sio/omarchy-tokyoled-theme
 [[ -d $THEME_TOKYOLED ]] && cp -r $BHH_BACKGROUNDS $THEME_TOKYOLED
 [[ -f $THEME_TOKYOLED'/backgrounds/black.jpg' ]] && rm $THEME_TOKYOLED'/backgrounds/black.jpg'
-omarchy-theme-next
+omarchy-theme-set tokyoled
+omarchy-theme-bg-next
 
 #ensure all scripts are excuteable
 if [[ -d "$BHH_BINARIES" ]]; then
